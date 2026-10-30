@@ -99,6 +99,14 @@ pub struct Palette {
     pub macchiato: Flavor,
     /// The darkest dark flavor.
     pub mocha: Flavor,
+    /// The light flavor chadpuccin.
+    pub lattechadpuccin: Flavor,
+    /// The lightest dark flavor chadpuccin.
+    pub frappechadpuccin: Flavor,
+    /// The medium dark flavor chadpuccin.
+    pub macchiatochadpuccin: Flavor,
+    /// The darkest dark flavor chadpuccin.
+    pub mochachadpuccin: Flavor,
 }
 
 /// Enum of all four flavors of Catppuccin. Can be used to index [`Palette`].
@@ -114,6 +122,15 @@ pub enum FlavorName {
     Macchiato,
     /// The darkest dark flavor.
     Mocha,
+    /// The light flavor chadpuccin.
+    ChadpuccinLatte,
+    /// The lightest dark flavor chadpuccin.
+    #[cfg_attr(feature = "serde", serde(rename = "ChadpuccinFrappé"))]
+    ChadpuccinFrappe,
+    /// The medium dark flavor chadpuccin.
+    ChadpuccinMacchiato,
+    /// The darkest dark flavor chadpuccin.
+    ChadpuccinMocha,
 }
 
 /// An iterator over flavors in the palette.
@@ -235,7 +252,7 @@ impl Palette {
     /// Get an array of the flavors in the palette.
     #[must_use]
     pub const fn all_flavors(&self) -> [&Flavor; 4] {
-        [&self.latte, &self.frappe, &self.macchiato, &self.mocha]
+        [&self.latte, &self.frappe, &self.macchiato, &self.mocha, &self.lattechadpuccin, &self.frappechadpuccin, &self.macchiatochadpuccin, &self.mochachadpuccin]
     }
 
     /// Create an iterator over the flavors in the palette.
@@ -257,6 +274,10 @@ impl Index<FlavorName> for Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
+            FlavorName::ChadpuccinLatte => &self.lattechadpuccin,
+            FlavorName::ChadpuccinFrappe => &self.frappechadpuccin,
+            FlavorName::ChadpuccinMacchiato => &self.macchiatochadpuccin,
+            FlavorName::ChadpuccinMocha => &self.mochachadpuccin,
         }
     }
 }
@@ -273,6 +294,10 @@ impl Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
+            FlavorName::ChadpuccinLatte => &self.lattechadpuccin,
+            FlavorName::ChadpuccinFrappe => &self.frappechadpuccin,
+            FlavorName::ChadpuccinMacchiato => &self.macchiatochadpuccin,
+            FlavorName::ChadpuccinMocha => &self.mochachadpuccin,
         }
     }
 }
@@ -325,6 +350,10 @@ impl fmt::Display for FlavorName {
             Self::Frappe => write!(f, "Frappé"),
             Self::Macchiato => write!(f, "Macchiato"),
             Self::Mocha => write!(f, "Mocha"),
+            Self::ChadpuccinLatte => write!(f, "Chadpuccin Latte"),
+            Self::ChadpuccinFrappe => write!(f, "Chadpuccin Frappé"),
+            Self::ChadpuccinMacchiato => write!(f, "Chadpuccin Macchiato"),
+            Self::ChadpuccinMocha => write!(f, "Chadpuccin Mocha"),
         }
     }
 }
@@ -337,7 +366,7 @@ impl core::fmt::Display for ParseFlavorNameError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
             f,
-            "invalid flavor identifier, expected one of: latte, frappe, frappé, macchiato, mocha"
+            "invalid flavor identifier, expected one of: latte, frappe, frappé, macchiato, mocha, lattechadpuccin, frappechadpuccin, frappéchadpuccin, macchiatochadpuccin, mochachadpuccin"
         )
     }
 }
@@ -351,6 +380,10 @@ impl FromStr for FlavorName {
             "frappe" | "frappé" => Ok(Self::Frappe),
             "macchiato" => Ok(Self::Macchiato),
             "mocha" => Ok(Self::Mocha),
+            "lattechadpuccin" => Ok(Self::ChadpuccinLatte),
+            "frappechadpuccin" | "frappéchadpuccin" => Ok(Self::ChadpuccinFrappe),
+            "macchiatochadpuccin" => Ok(Self::ChadpuccinMacchiato),
+            "mochachadpuccin" => Ok(Self::ChadpuccinMocha),
             _ => Err(ParseFlavorNameError),
         }
     }
@@ -375,6 +408,10 @@ impl FlavorName {
             Self::Frappe => "frappe",
             Self::Macchiato => "macchiato",
             Self::Mocha => "mocha",
+            Self::ChadpuccinLatte => "lattechadpuccin",
+            Self::ChadpuccinFrappe => "frappechadpuccin",
+            Self::ChadpuccinMacchiato => "macchiatochadpuccin",
+            Self::ChadpuccinMocha => "mochachadpuccin",
         }
     }
 }
