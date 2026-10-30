@@ -123,14 +123,14 @@ pub enum FlavorName {
     /// The darkest dark flavor.
     Mocha,
     /// The light flavor chadpuccin.
-    ChadpuccinLatte,
+    Lattechadpuccin,
     /// The lightest dark flavor chadpuccin.
-    #[cfg_attr(feature = "serde", serde(rename = "ChadpuccinFrappé"))]
-    ChadpuccinFrappe,
+    #[cfg_attr(feature = "serde", serde(rename = "Frappéchadpuccin"))]
+    Frappechadpuccin,
     /// The medium dark flavor chadpuccin.
-    ChadpuccinMacchiato,
+    Macchiatochadpuccin,
     /// The darkest dark flavor chadpuccin.
-    ChadpuccinMocha,
+    Mochachadpuccin,
 }
 
 /// An iterator over flavors in the palette.
@@ -251,7 +251,7 @@ pub struct AnsiColorPairsIterator<'a> {
 impl Palette {
     /// Get an array of the flavors in the palette.
     #[must_use]
-    pub const fn all_flavors(&self) -> [&Flavor; 4] {
+    pub const fn all_flavors(&self) -> [&Flavor; 8] {
         [&self.latte, &self.frappe, &self.macchiato, &self.mocha, &self.lattechadpuccin, &self.frappechadpuccin, &self.macchiatochadpuccin, &self.mochachadpuccin]
     }
 
@@ -274,10 +274,10 @@ impl Index<FlavorName> for Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
-            FlavorName::ChadpuccinLatte => &self.lattechadpuccin,
-            FlavorName::ChadpuccinFrappe => &self.frappechadpuccin,
-            FlavorName::ChadpuccinMacchiato => &self.macchiatochadpuccin,
-            FlavorName::ChadpuccinMocha => &self.mochachadpuccin,
+            FlavorName::Lattechadpuccin => &self.lattechadpuccin,
+            FlavorName::Frappechadpuccin => &self.frappechadpuccin,
+            FlavorName::Macchiatochadpuccin => &self.macchiatochadpuccin,
+            FlavorName::Mochachadpuccin => &self.mochachadpuccin,
         }
     }
 }
@@ -294,10 +294,10 @@ impl Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
-            FlavorName::ChadpuccinLatte => &self.lattechadpuccin,
-            FlavorName::ChadpuccinFrappe => &self.frappechadpuccin,
-            FlavorName::ChadpuccinMacchiato => &self.macchiatochadpuccin,
-            FlavorName::ChadpuccinMocha => &self.mochachadpuccin,
+            FlavorName::Lattechadpuccin => &self.lattechadpuccin,
+            FlavorName::Frappechadpuccin => &self.frappechadpuccin,
+            FlavorName::Macchiatochadpuccin => &self.macchiatochadpuccin,
+            FlavorName::Mochachadpuccin => &self.mochachadpuccin,
         }
     }
 }
@@ -350,10 +350,10 @@ impl fmt::Display for FlavorName {
             Self::Frappe => write!(f, "Frappé"),
             Self::Macchiato => write!(f, "Macchiato"),
             Self::Mocha => write!(f, "Mocha"),
-            Self::ChadpuccinLatte => write!(f, "Chadpuccin Latte"),
-            Self::ChadpuccinFrappe => write!(f, "Chadpuccin Frappé"),
-            Self::ChadpuccinMacchiato => write!(f, "Chadpuccin Macchiato"),
-            Self::ChadpuccinMocha => write!(f, "Chadpuccin Mocha"),
+            Self::Lattechadpuccin => write!(f, "Chadpuccin Latte"),
+            Self::Frappechadpuccin => write!(f, "Chadpuccin Frappé"),
+            Self::Macchiatochadpuccin => write!(f, "Chadpuccin Macchiato"),
+            Self::Mochachadpuccin => write!(f, "Chadpuccin Mocha"),
         }
     }
 }
@@ -380,10 +380,10 @@ impl FromStr for FlavorName {
             "frappe" | "frappé" => Ok(Self::Frappe),
             "macchiato" => Ok(Self::Macchiato),
             "mocha" => Ok(Self::Mocha),
-            "lattechadpuccin" => Ok(Self::ChadpuccinLatte),
-            "frappechadpuccin" | "frappéchadpuccin" => Ok(Self::ChadpuccinFrappe),
-            "macchiatochadpuccin" => Ok(Self::ChadpuccinMacchiato),
-            "mochachadpuccin" => Ok(Self::ChadpuccinMocha),
+            "lattechadpuccin" => Ok(Self::Lattechadpuccin),
+            "frappechadpuccin" | "frappéchadpuccin" => Ok(Self::Frappechadpuccin),
+            "macchiatochadpuccin" => Ok(Self::Macchiatochadpuccin),
+            "mochachadpuccin" => Ok(Self::Mochachadpuccin),
             _ => Err(ParseFlavorNameError),
         }
     }
@@ -408,10 +408,10 @@ impl FlavorName {
             Self::Frappe => "frappe",
             Self::Macchiato => "macchiato",
             Self::Mocha => "mocha",
-            Self::ChadpuccinLatte => "lattechadpuccin",
-            Self::ChadpuccinFrappe => "frappechadpuccin",
-            Self::ChadpuccinMacchiato => "macchiatochadpuccin",
-            Self::ChadpuccinMocha => "mochachadpuccin",
+            Self::Lattechadpuccin => "lattechadpuccin",
+            Self::Frappechadpuccin => "frappechadpuccin",
+            Self::Macchiatochadpuccin => "macchiatochadpuccin",
+            Self::Mochachadpuccin => "mochachadpuccin",
         }
     }
 }
