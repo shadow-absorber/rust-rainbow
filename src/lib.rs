@@ -255,7 +255,7 @@ pub struct AnsiColorPairsIterator<'a> {
 impl Palette {
     /// Get an array of the flavors in the palette.
     #[must_use]
-    pub const fn all_flavors(&self) -> [&Flavor; 8] {
+    pub const fn all_flavors(&self) -> [&Flavor; 9] {
         [&self.latte, &self.frappe, &self.macchiato, &self.mocha, &self.americano, &self.lattechadpuccin, &self.frappechadpuccin, &self.macchiatochadpuccin, &self.mochachadpuccin]
     }
 
