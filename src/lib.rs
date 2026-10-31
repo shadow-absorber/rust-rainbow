@@ -278,7 +278,7 @@ impl Index<FlavorName> for Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
-            FlavorName::Americano => &self.americano
+            FlavorName::Americano => &self.americano,
             FlavorName::Lattechadpuccin => &self.lattechadpuccin,
             FlavorName::Frappechadpuccin => &self.frappechadpuccin,
             FlavorName::Macchiatochadpuccin => &self.macchiatochadpuccin,
@@ -299,7 +299,7 @@ impl Palette {
             FlavorName::Frappe => &self.frappe,
             FlavorName::Macchiato => &self.macchiato,
             FlavorName::Mocha => &self.mocha,
-            FlavorName::Americano => &self.americano
+            FlavorName::Americano => &self.americano,
             FlavorName::Lattechadpuccin => &self.lattechadpuccin,
             FlavorName::Frappechadpuccin => &self.frappechadpuccin,
             FlavorName::Macchiatochadpuccin => &self.macchiatochadpuccin,
