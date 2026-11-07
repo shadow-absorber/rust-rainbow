@@ -3635,7 +3635,7 @@
   "americano": {
     "name": "Americano",
     "emoji": "🌿",
-    "order": 3,
+    "order": 4,
     "dark": true,
     "colors": {
       "rosewater": {
@@ -4543,7 +4543,7 @@
   "lattechadpuccin": {
     "name": "ChadpuccinLatte",
     "emoji": "🌻",
-    "order": 0,
+    "order": 5,
     "dark": false,
     "colors": {
       "rosewater": {
@@ -5451,7 +5451,7 @@
   "frappechadpuccin": {
     "name": "ChadpuccinFrappé",
     "emoji": "🪴",
-    "order": 1,
+    "order": 6,
     "dark": true,
     "colors": {
       "rosewater": {
@@ -6359,7 +6359,7 @@
   "macchiatochadpuccin": {
     "name": "ChadpuccinMacchiato",
     "emoji": "🌺",
-    "order": 2,
+    "order": 7,
     "dark": true,
     "colors": {
       "rosewater": {
@@ -7267,7 +7267,7 @@
   "mochachadpuccin": {
     "name": "ChadpuccinMocha",
     "emoji": "🌿",
-    "order": 3,
+    "order": 8,
     "dark": true,
     "colors": {
       "rosewater": {
