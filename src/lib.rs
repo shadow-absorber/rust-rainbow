@@ -115,6 +115,8 @@ pub struct Palette {
     pub evergardenfall: Flavor,
     /// The lightest dark flavor evergarden.
     pub evergardenspring: Flavor,
+    /// The light flavor evergarden.
+    pub evergardensummer: Flavor,
 }
 
 /// Enum of all four flavors of Catppuccin. Can be used to index [`Palette`].
@@ -146,7 +148,9 @@ pub enum FlavorName {
     /// The medium dark flavor evergarden.
     Evergardenfall,
     /// The lightest dark flavor evergarden.
-    Evergardenspring
+    Evergardenspring,
+    /// The light flavor evergarden.
+    Evergardensummer,
 }
 
 /// An iterator over flavors in the palette.
@@ -267,8 +271,8 @@ pub struct AnsiColorPairsIterator<'a> {
 impl Palette {
     /// Get an array of the flavors in the palette.
     #[must_use]
-    pub const fn all_flavors(&self) -> [&Flavor; 12] {
-        [&self.latte, &self.frappe, &self.macchiato, &self.mocha, &self.americano, &self.lattechadpuccin, &self.frappechadpuccin, &self.macchiatochadpuccin, &self.mochachadpuccin, &self.evergardenwinter, &self.evergardenfall, &self.evergardenspring]
+    pub const fn all_flavors(&self) -> [&Flavor; 13] {
+        [&self.latte, &self.frappe, &self.macchiato, &self.mocha, &self.americano, &self.lattechadpuccin, &self.frappechadpuccin, &self.macchiatochadpuccin, &self.mochachadpuccin, &self.evergardenwinter, &self.evergardenfall, &self.evergardenspring, &self.evergardensummer]
     }
 
     /// Create an iterator over the flavors in the palette.
@@ -298,6 +302,7 @@ impl Index<FlavorName> for Palette {
             FlavorName::Evergardenwinter => &self.evergardenwinter,
             FlavorName::Evergardenfall => &self.evergardenfall,
             FlavorName::Evergardenspring => &self.evergardenspring,
+            FlavorName::Evergardensummer => &self.evergardensummer,
         }
     }
 }
@@ -322,6 +327,7 @@ impl Palette {
             FlavorName::Evergardenwinter => &self.evergardenwinter,
             FlavorName::Evergardenfall => &self.evergardenfall,
             FlavorName::Evergardenspring => &self.evergardenspring,
+            FlavorName::Evergardensummer => &self.evergardensummer,
         }
     }
 }
@@ -382,6 +388,7 @@ impl fmt::Display for FlavorName {
             Self::Evergardenwinter => write!(f, "Evergarden Winter"),
             Self::Evergardenfall => write!(f, "Evergarden Fall"),
             Self::Evergardenspring => write!(f,"Evergarden Spring"),
+            Self::Evergardensummer => write!(f,"Evergarden Summer"),
         }
     }
 }
@@ -394,7 +401,7 @@ impl core::fmt::Display for ParseFlavorNameError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
             f,
-            "invalid flavor identifier, expected one of: latte, frappe, frappé, macchiato, mocha, americano, lattechadpuccin, frappechadpuccin, frappéchadpuccin, macchiatochadpuccin, mochachadpuccin, evergardenwinter, evergardenfall, evergardenspring"
+            "invalid flavor identifier, expected one of: latte, frappe, frappé, macchiato, mocha, americano, lattechadpuccin, frappechadpuccin, frappéchadpuccin, macchiatochadpuccin, mochachadpuccin, evergardenwinter, evergardenfall, evergardenspring, evergardensummer"
         )
     }
 }
@@ -416,6 +423,7 @@ impl FromStr for FlavorName {
             "evergardenwinter" => Ok(Self::Evergardenwinter),
             "evergardenfall" => Ok(Self::Evergardenfall),
             "evergardenspring" => Ok(Self::Evergardenspring),
+            "evergardensummer" => Ok(Self::Evergardensummer),
             _ => Err(ParseFlavorNameError),
         }
     }
@@ -448,6 +456,7 @@ impl FlavorName {
             Self::Evergardenwinter => "evergardenwinter",
             Self::Evergardenfall => "evergardenfall",
             Self::Evergardenspring => "evergardenspring",
+            Self::Evergardensummer => "evergardensummer",
         }
     }
 }
